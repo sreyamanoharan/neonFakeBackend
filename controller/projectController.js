@@ -3,7 +3,7 @@ import project from "../model/projectModel.js";
 export const insertingDatas = async (req, res) => {
   const data = req.body.input;
   console.log(data);
-  await project.insertMany({ data });
+  await project.insertMany( data );
 };
 
 export const getTumbnail = async (req, res) => {
