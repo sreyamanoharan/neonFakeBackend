@@ -16,6 +16,6 @@ export const getVideo = async (req, res) => {
   const { id } = req.params;
 
   const newdata = await project.findOne({ id: id });
-  const newvideo = newdata[0].video;
+  const newvideo = newdata
   res.json({ message: "success", data: newvideo });
 };
