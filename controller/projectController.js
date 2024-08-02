@@ -4,6 +4,8 @@ export const insertingDatas = async (req, res) => {
   const data = req.body.input;
   console.log(data);
   await project.insertMany( data );
+
+  res.json("succss")
 };
 
 export const getTumbnail = async (req, res) => {
