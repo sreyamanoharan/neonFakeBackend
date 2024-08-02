@@ -4,13 +4,13 @@ const projectSchema = new mongoose.Schema({
   id: {
     type: "string",
   },
-  titile: {
+  title: {
     type: "string",
   },
   description: {
     type: "string",
   },
-  tumbnail: {
+  thumbnail: {
     type: "string",
   },
   video: {
