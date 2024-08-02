@@ -8,7 +8,7 @@ const port = 4000;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173","https://neon-flake-front-end.vercel.app"],
     methods: ["GET", "POST"],
   })
 );
