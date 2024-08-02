@@ -1,21 +1,31 @@
-import express from "express";
-import cors from "cors";
-import projectRoter from './Router/porjectRoter.js'
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import projectRouter from './Router/porjectRoter.js'
 
+dotenv.config();
 
 const app = express();
-const port = 4000;
 
 app.use(
-  cors({
-    origin: ["http://localhost:5173"],
-    methods: ["GET", "POST"],
-  })
+    cors({
+        origin: ["http://localhost:5173"],
+        methods: ["GET", "POST"],
+    })
 );
-
 app.use(express.json());
 
-app.use("/", projectRoter);
+mongoose.connect(process.env.MONGO_URL)
+    .then(() => {
+        console.log('DB Connected successfully');
+    })
+    .catch((err) => {
+        console.log(err.message);
+    });
 
+app.use('/', projectRouter);
 
- app.listen(port)
+const server = app.listen(process.env.PORT, () => {
+    console.log(`server running on port ${process.env.PORT}`);
+});
